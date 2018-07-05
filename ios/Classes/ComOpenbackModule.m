@@ -1,8 +1,7 @@
 /**
- * OpenBack
+ * OpenBack Titanium Module for iOS
  *
- * Created by Your Name
- * Copyright (c) 2018 Your Company. All rights reserved.
+ * Copyright (c) 2018 OpenBack, Ltd.. All rights reserved.
  */
 
 #import "ComOpenbackModule.h"

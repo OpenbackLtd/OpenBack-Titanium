@@ -133,6 +133,7 @@ obj/
 .idea/sqlDataSources.xml
 .idea/dynamic.xml
 .idea/uiDesigner.xml
+.idea
 
 # OS-specific files
 .DS_Store
@@ -184,6 +185,9 @@ fabric.properties
 # Build folder and log file
 build.log
 android/java-sources.txt
+android/dist
+android/libs
+android/build.properties
 ios/*.zip
 ios/platform/*.framework
 
@@ -191,7 +195,6 @@ ios/platform/*.framework
 # General
 .AppleDouble
 .LSOverride
-
 # Icon must end with two \r
 Icon
 
