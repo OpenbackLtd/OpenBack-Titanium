@@ -5,9 +5,9 @@
 version: 1.0.0
 apiversion: 2
 architectures: armv7 arm64 i386 x86_64
-description: OpenBack
+description: OpenBack Titanium Module
 author: OpenBack
-license: Specify your license
+license: All items and source code Copyright © 2015-2018 OpenBack, Ltd.
 copyright: Copyright (c) 2018 by OpenBack, Ltd.
 
 # these should not be edited
