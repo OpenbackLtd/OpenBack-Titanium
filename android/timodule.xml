@@ -29,14 +29,9 @@
 					android:theme="@android:style/Theme.Translucent.NoTitleBar"
 					android:windowSoftInputMode="stateAlwaysHidden" />
 
-				<service android:name="com.openback.OpenBackService" android:exported="false" />
-				<service android:name="com.openback.OpenBackAssetService" android:exported="false" />
-
-				<!-- Android 8+ -->
-				<service android:name="com.openback.OpenBackJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false" />
-				<service android:name="com.openback.OpenBackAssetJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false" />
-				<!-- End Android 8+ -->
-
+				<service android:name="com.openback.OpenBackService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false" />
+				<service android:name="com.openback.OpenBackAssetService" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="false" />
+				
 				<receiver android:name="com.openback.OpenBackReceiver" android:exported="true">
 					<intent-filter>
 						<!-- Boot Complete event (level 1) -->
