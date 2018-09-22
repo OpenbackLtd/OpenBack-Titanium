@@ -13,6 +13,13 @@ extern NSString * const _Nonnull kOBKFrameworkVersion;
 
 @implementation ComOpenbackModule
 
++ (void)load {
+    TiThreadPerformOnMainThread(^{
+        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+        [nc addObserver:self selector:@selector(activateApp:) name:UIApplicationDidFinishLaunchingNotification object:nil];      
+    }, YES);
+}
+
 #pragma mark Internal
 
 - (id)moduleGUID {
@@ -25,25 +32,27 @@ extern NSString * const _Nonnull kOBKFrameworkVersion;
 
 #pragma mark Lifecycle
 
-- (void)startup {
-    [super startup];
-    DebugLog(@"[DEBUG] %@ loaded", self);
-    [self start:@{ }];
++ (void)activateApp:(NSNotification *)notification {
+    DebugLog(@"[DEBUG] Activate App %@", self);
+    [self startOpenBack:@{ }];
 }
 
-#pragma Public APIs
-
-- (void)start:(id)args {
-    ENSURE_DICT(args);
-    
++ (void)startOpenBack:(NSDictionary *)config {
     NSError *error = nil;
-    if ([OpenBack setupWithConfig:args error:&error]) {
+    if ([OpenBack setupWithConfig:config error:&error]) {
         if (![OpenBack start:&error]) {
             DebugLog(@"[DEBUG] start failed: %@", error);
         }
     } else {
         DebugLog(@"[DEBUG] setupWithConfig failed: %@", error);
     }
+}
+
+#pragma Public APIs
+
+- (void)start:(id)args {
+    ENSURE_DICT(args);
+    [ComOpenbackModule startOpenBack:args];
 }
 
 - (void)stop:(id)args {
